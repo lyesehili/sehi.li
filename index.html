@@ -1,39 +1,94 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
   <title>Lyes Sehili</title>
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      max-width: 720px;
-      margin: 100px auto;
-      padding: 0 24px;
-      line-height: 1.7;
-      color: #222;
-      background: #fafafa;
-    }
-    h1 { font-size: 42px; margin-bottom: 0; }
-    a { color: #2563eb; }
-  </style>
+  <meta name="description" content="Lyes Sehili, a Tunisian Computer Science MSc student at ETH Zürich, previously at EPFL. Research, projects, competitive games, mountains, and music.">
+  <meta name="author" content="Lyes Sehili">
+
+  <link rel="canonical" href="https://sehi.li/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lyes Sehili">
+  <meta property="og:title" content="Lyes Sehili">
+  <meta property="og:description" content="Lyes Sehili, a Tunisian Computer Science MSc student at ETH Zürich, previously at EPFL. Research, projects, competitive games, mountains, and music.">
+  <meta property="og:url" content="https://sehi.li/">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="https://sehi.li/assets/images/social.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lyes Sehili — computer science, mountains, games, and music. sehi.li">
+  <meta name="theme-color" content="#faf9f6">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/site.js" defer></script>
 </head>
-<body>
-  <h1>Lyes Sehili</h1>
-  <p>Computer Science MSc student at ETH Zurich.</p>
+<body class="home">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="wordmark" href="/" aria-current="page">Lyes Sehili</a>
+      <nav aria-label="Main navigation">
+        <a href="/" aria-current="page">Home</a>
+        <a href="/about/">About</a>
+        <a href="/projects/">Projects</a>
+        <a href="/cv/">CV</a>
+        <details class="more-menu">
+          <summary>More <span class="chevron" aria-hidden="true"></span></summary>
+          <div class="more-links">
+            <a href="/gaming/">Video Games &amp; Competitions</a>
+            <a href="/mountains/">Mountains &amp; Sports</a>
+            <a href="/music/">Music &amp; Films</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </details>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <header class="home-intro">
+        <figure class="portrait">
+          <div class="portrait-placeholder" role="img" aria-label="Placeholder for a portrait of Lyes">
+            <span class="portrait-initials" aria-hidden="true">LS</span>
+          </div>
+          <figcaption>Photo: TODO</figcaption>
+        </figure>
+        <div>
+          <h1>Hi</h1>
+          <p class="lede">I'm Lyes. I study Computer Science at ETH Zürich,
+            and was previously at EPFL.</p>
+          <p>I’m interested in quantitative trading and research, game theory,
+            distributed systems, and the many ways people and machines make decisions.</p>
+          <p>Outside of computer science, I’m into mountains, competitive video
+            games, and music/films. Sometimes random stuff, too.</p>
+          <div class="text-links" aria-label="Find me online">
+            <a href="https://github.com/lyesehili">GitHub</a>
+            <a href="https://www.linkedin.com/in/lyes-sehili-917648247/">LinkedIn</a>
+            <a href="mailto:lyes@sehi.li">Email</a>
+            <a href="/cv/">CV</a>
+          </div>
+        </div>
+      </header>
 
-  <h2>About</h2>
-  <p>Interested in computer science, research,
-     quantitative trading and probability.</p>
-
-  <h2>Projects</h2>
-  <p>Coming soon.</p>
-
-  <h2>Contact</h2>
-  <p>
-    <a href="https://github.com/">GitHub</a>
-    · <a href="https://linkedin.com/">LinkedIn</a>
-  </p>
+      <section class="home-personal" aria-labelledby="explore">
+        <div class="section-heading"><h2 id="explore">Explore</h2></div>
+        <div class="personal-links">
+          <div><h3><a href="/about/">About</a></h3><p>Background, languages, and interests.</p></div>
+          <div><h3><a href="/projects/">Projects &amp; Research</a></h3><p>Research and personal projects.</p></div>
+          <div><h3><a href="/cv/">CV</a></h3><p>Education, experience, and more.</p></div>
+          <div><h3><a href="/gaming/">Video Games &amp; Competitions</a></h3><p>Games, chess, and clips.</p></div>
+          <div><h3><a href="/mountains/">Mountains &amp; Sports</a></h3><p>Hiking, climbing, and alpinism.</p></div>
+          <div><h3><a href="/music/">Music &amp; Films</a></h3><p>Music, films, and soundtracks.</p></div>
+          <div><h3><a href="/contact/">Contact</a></h3><p>Email and other links.</p></div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>Lyes Sehili <span aria-hidden="true">·</span> Zürich, Switzerland</p>
+      <div><a href="/contact/">Contact</a><a href="https://github.com/lyesehili">GitHub</a><a href="/cv/">CV</a></div>
+    </footer>
+  </div>
 </body>
 </html>
