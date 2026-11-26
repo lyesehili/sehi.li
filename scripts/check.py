@@ -61,6 +61,35 @@ class Page(HTMLParser):
 
 def main():
     errors = []
+    # The homepage portrait uses a prepared, metadata-free WebP copy.
+    photos = [*(ROOT / "assets").glob("pp.*"), *(ROOT / "assets").glob("pp-*")]
+    for photo in photos:
+        if not photo.is_file():
+            continue
+        label = str(photo.relative_to(ROOT))
+        if photo.suffix.lower() != ".webp":
+            errors.append(f"{label}: keep photo originals outside the website repository")
+            continue
+        data = photo.read_bytes()
+        if data[:4] != b"RIFF" or data[8:12] != b"WEBP" or int.from_bytes(data[4:8], "little") + 8 != len(data):
+            errors.append(f"{label}: invalid WebP container")
+            continue
+        offset = 12
+        image_found = False
+        while offset < len(data):
+            if offset + 8 > len(data):
+                errors.append(f"{label}: truncated WebP chunk")
+                break
+            kind = data[offset:offset + 4]
+            length = int.from_bytes(data[offset + 4:offset + 8], "little")
+            offset += 8 + length + (length % 2)
+            if offset > len(data):
+                errors.append(f"{label}: truncated WebP data")
+            if kind not in {b"VP8 ", b"VP8L", b"VP8X", b"ALPH"}:
+                errors.append(f"{label}: unexpected metadata or chunk {kind!r}; export without metadata")
+            image_found |= kind in {b"VP8 ", b"VP8L"}
+        if not image_found:
+            errors.append(f"{label}: missing WebP image data")
     expected = build_outputs()
     pages = {}
     titles = []

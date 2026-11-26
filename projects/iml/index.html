@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>IML — Lyes Sehili</title>
-  <meta name="description" content="TODO">
+  <title>Machine Learning for Medical Classification — Lyes Sehili</title>
+  <meta name="description" content="Experiments in heart disease prediction and skin lesion classification using tabular records and dermoscopic images.">
   <meta name="author" content="Lyes Sehili">
 
   <link rel="canonical" href="https://sehi.li/projects/iml/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Lyes Sehili">
-  <meta property="og:title" content="IML — Lyes Sehili">
-  <meta property="og:description" content="TODO">
+  <meta property="og:title" content="Machine Learning for Medical Classification — Lyes Sehili">
+  <meta property="og:description" content="Experiments in heart disease prediction and skin lesion classification using tabular records and dermoscopic images.">
   <meta property="og:url" content="https://sehi.li/projects/iml/">
   <meta property="og:locale" content="en_GB">
   <meta property="og:image" content="https://sehi.li/assets/images/social.png">
@@ -23,10 +23,10 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <script src="/assets/js/site.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/style.css?v=7f6414d77104">
+  <script src="/assets/js/site.js?v=d6f4110261dd" defer></script>
 </head>
-<body class="interior">
+<body class="interior page-project">
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="site-shell">
     <header class="site-header">
@@ -51,29 +51,27 @@
       <article class="project-article">
         <a class="back-link" href="/projects/">All projects &amp; research</a>
         <header class="page-heading">
-          <p class="project-category">Academic project · EPFL</p>
-          <h1>IML</h1>
-          <p class="lede">TODO</p>
+          <p class="project-category">Course project · EPFL CS-233</p>
+          <h1>Machine Learning for Medical Classification</h1>
+          <p class="lede">Experiments in heart disease prediction and skin lesion classification using tabular records and dermoscopic images.</p>
           <dl class="project-facts">
-            <div><dt>Status</dt><dd>TODO</dd></div>
-            <div><dt>Technologies</dt><dd>TODO</dd></div>
+            <div><dt>Status</dt><dd>Completed</dd></div>
+            <div><dt>Technologies</dt><dd>Python, PyTorch</dd></div>
           </dl>
         </header>
         <section aria-labelledby="context">
-          <h2 id="context">Course context</h2>
-          <p class="editor-note">TODO</p>
+          <h2 id="context">Context</h2>
+          <p>I worked on this project with friends for EPFL’s Introduction to Machine Learning course. Both datasets were imbalanced, so we compared overall accuracy with macro F1, which gives each class equal weight.</p>
         </section>
         <section aria-labelledby="approach">
-          <h2 id="approach">Approach</h2>
-          <p class="editor-note">TODO</p>
+          <h2 id="approach">Heart disease classification</h2>
+          <p>We implemented logistic regression, k-nearest neighbors, and k-means from scratch and compared them on 297 records with five heart disease labels. We tuned hyperparameters using five-fold cross-validation and evaluated on a held-out test set.</p>
+          <p class="project-resource"><a href="/assets/report-2.pdf">Read the heart disease report (PDF)</a></p>
         </section>
         <section aria-labelledby="reflection">
-          <h2 id="reflection">Results &amp; reflections</h2>
-          <p class="editor-note">TODO</p>
-        </section>
-        <section aria-labelledby="material">
-          <h2 id="material">Supporting material</h2>
-          <p class="editor-note">TODO</p>
+          <h2 id="reflection">Skin lesion classification</h2>
+          <p>We compared multilayer perceptrons and convolutional neural networks on 9,012 DermaMNIST images across seven classes. In our CNN comparison, class weighting raised macro F1 from <strong>0.364 to 0.423</strong>, while overall accuracy fell from <strong>70.3% to about 63%</strong>. The weighted model scored better when each class counted equally, but made fewer correct predictions overall.</p>
+          <p class="project-resource"><a href="/assets/report-3.pdf">Read the skin lesion report (PDF)</a></p>
         </section>
 
       </article>

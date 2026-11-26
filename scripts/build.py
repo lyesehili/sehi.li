@@ -2,6 +2,7 @@
 """Optional, dependency-free authoring helper. Generated HTML is committed."""
 
 from html import escape
+from hashlib import sha256
 from datetime import date
 import json
 from pathlib import Path
@@ -14,6 +15,11 @@ ROOT = Path(__file__).resolve().parents[1]
 DOMAIN = "https://sehi.li"
 NAV_PRIMARY = [("Home", "/"), ("About", "/about/"), ("Projects", "/projects/"), ("CV", "/cv/")]
 NAV_MORE = [("Video Games & Competitions", "/gaming/"), ("Mountains & Sports", "/mountains/"), ("Music & Films", "/music/"), ("Contact", "/contact/")]
+PROJECT_GROUPS = (
+    ("Research & thesis", ("apollo", "bachelor-thesis")),
+    ("Course projects", ("mapin", "iml", "distributed-key-value-store")),
+    ("Personal projects & explorations", ("poker-bot", "polymarket")),
+)
 
 
 def read_page(source):
@@ -67,6 +73,8 @@ def external_url(value):
 def render_clips():
     """Generate static markup; site.js enhances YouTube links after a click."""
     clips = json.loads((ROOT / "_data/clips.json").read_text(encoding="utf-8"))
+    if not clips:
+        return '          <div class="media-placeholder">TODO</div>'
     figures = []
     for clip in clips:
         game = escape(clip["game"])
@@ -117,13 +125,54 @@ def render_tracks():
     return "\n".join(items)
 
 
+def render_project_lists(projects):
+    """Share project links and listing titles, with optional CV-specific descriptions."""
+    sections = []
+    cv_entries = []
+    for index, (label, slugs) in enumerate(PROJECT_GROUPS, 1):
+        entries = []
+        for slug in slugs:
+            path = f"/projects/{slug}/"
+            meta = projects[path]
+            title = escape(meta.get("listing_title", meta["title"]), quote=False)
+            link = f'<a href="{path}">{title}</a>'
+            description = escape(meta["description"], quote=False)
+            category = escape(meta["category"], quote=False)
+            status = escape(meta["status"], quote=False)
+            pending = not status.startswith("Completed")
+            status_class = ' class="status"' if pending else ''
+            entries.append(f'''          <article class="project-entry">
+            <div class="entry-meta"><span>{category}</span><span{status_class}>{status}</span></div>
+            <div>
+              <h3>{link}</h3>
+              <p>{description}</p>
+            </div>
+          </article>''')
+            if meta.get("cv_description"):
+                cv_description = escape(meta["cv_description"], quote=False)
+                cv_entries.append(f"          <li>{link} — {cv_description}</li>")
+        identifier = f"project-group-{index}"
+        sections.append(f'''      <section class="project-group" aria-labelledby="{identifier}">
+        <h2 id="{identifier}">{escape(label)}</h2>
+        <div class="project-list">
+{chr(10).join(entries)}
+        </div>
+      </section>''')
+    return "\n".join(sections), "\n".join(cv_entries)
+
+
 def build_outputs():
     base = Template((ROOT / "_templates/base.html").read_text(encoding="utf-8"))
     project = Template((ROOT / "_templates/project.html").read_text(encoding="utf-8"))
+    stylesheet_version = sha256((ROOT / "assets/css/style.css").read_bytes()).hexdigest()[:12]
+    script_version = sha256((ROOT / "assets/js/site.js").read_bytes()).hexdigest()[:12]
     outputs = {}
     urls = []
-    for source in sorted((ROOT / "_pages").glob("*.html")):
-        meta, content = read_page(source)
+    sources = [(source, *read_page(source)) for source in sorted((ROOT / "_pages").glob("*.html"))]
+    projects = {meta["path"]: meta for _, meta, _ in sources if meta.get("layout") == "project"}
+    project_index, cv_projects = render_project_lists(projects)
+    for source, meta, content in sources:
+        content = content.replace("{{project_index}}", project_index).replace("{{cv_projects}}", cv_projects)
         if "{{clip_gallery}}" in content:
             content = content.replace("{{clip_gallery}}", render_clips())
         if "{{music_tracks}}" in content:
@@ -131,19 +180,28 @@ def build_outputs():
         path = meta["path"]
         is_project = meta.get("layout") == "project"
         if is_project:
-            for key in ("category", "status", "technologies"):
+            for key in ("category", "status"):
                 if not meta.get(key):
                     raise ValueError(f"{source}: missing project field {key}")
+            facts = "\n".join(
+                f"            <div><dt>{label}</dt><dd>{escape(meta[key])}</dd></div>"
+                for key, label in (("status", "Status"), ("technologies", "Technologies"), ("platforms", "Platforms"))
+                if meta.get(key)
+            )
             content = project.substitute(
                 heading=escape(meta["title"]), description=escape(meta["description"]),
-                category=escape(meta["category"]), status=escape(meta["status"]),
-                technologies=escape(meta["technologies"]), content=content)
+                category=escape(meta["category"]), facts=facts, content=content)
         title = "Lyes Sehili" if path == "/" else f'{meta["title"]} — Lyes Sehili'
         rendered = base.substitute(
             title=escape(title), description=escape(meta["description"], quote=True),
+            stylesheet_version=stylesheet_version, script_version=script_version,
             canonical=DOMAIN + path, og_type="article" if is_project else "website",
             robots='<meta name="robots" content="noindex">' if path == "/404.html" else "",
-            body_class="home" if path == "/" else ("cv-page" if path == "/cv/" else "interior"),
+            body_class={
+                "/": "home", "/cv/": "cv-page", "/about/": "interior page-about",
+                "/gaming/": "interior page-gaming", "/mountains/": "interior page-mountains",
+                "/projects/": "interior page-projects", "/music/": "interior page-music",
+            }.get(path, "interior page-project" if is_project else "interior"),
             home_current=' aria-current="page"' if path == "/" else "",
             navigation=navigation(meta["section"]), content=content.rstrip())
         destination = "404.html" if path == "/404.html" else path.lstrip("/") + "index.html"

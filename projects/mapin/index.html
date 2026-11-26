@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <title>Map&#x27;In — Lyes Sehili</title>
-  <meta name="description" content="TODO">
+  <meta name="description" content="An Android app for discovering student events and sharing location-based memories, developed by a team of seven at EPFL.">
   <meta name="author" content="Lyes Sehili">
 
   <link rel="canonical" href="https://sehi.li/projects/mapin/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Lyes Sehili">
   <meta property="og:title" content="Map&#x27;In — Lyes Sehili">
-  <meta property="og:description" content="TODO">
+  <meta property="og:description" content="An Android app for discovering student events and sharing location-based memories, developed by a team of seven at EPFL.">
   <meta property="og:url" content="https://sehi.li/projects/mapin/">
   <meta property="og:locale" content="en_GB">
   <meta property="og:image" content="https://sehi.li/assets/images/social.png">
@@ -23,10 +23,10 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <script src="/assets/js/site.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/style.css?v=7f6414d77104">
+  <script src="/assets/js/site.js?v=d6f4110261dd" defer></script>
 </head>
-<body class="interior">
+<body class="interior page-project">
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="site-shell">
     <header class="site-header">
@@ -51,29 +51,31 @@
       <article class="project-article">
         <a class="back-link" href="/projects/">All projects &amp; research</a>
         <header class="page-heading">
-          <p class="project-category">Academic project · team of seven</p>
+          <p class="project-category">Course project · EPFL Software Enterprise</p>
           <h1>Map&#x27;In</h1>
-          <p class="lede">TODO</p>
+          <p class="lede">An Android app for discovering student events and sharing location-based memories, developed by a team of seven at EPFL.</p>
           <dl class="project-facts">
-            <div><dt>Status</dt><dd>TODO</dd></div>
-            <div><dt>Technologies</dt><dd>TODO</dd></div>
+            <div><dt>Status</dt><dd>Completed</dd></div>
+            <div><dt>Technologies</dt><dd>Kotlin, Jetpack Compose, Firebase, Mapbox GL, OpenRouter</dd></div>
           </dl>
         </header>
         <section aria-labelledby="overview">
-          <h2 id="overview">Overview</h2>
-          <p class="editor-note">TODO</p>
-        </section>
-        <section aria-labelledby="contribution">
-          <h2 id="contribution">Contribution</h2>
-          <p class="editor-note">TODO</p>
+          <h2 id="overview">What we built</h2>
+          <p>Students can create or join events on the map and share photos and videos afterward, tagging friends who were there.</p>
+          <p>The app also supports friend lists, chat, directions, saved map regions for offline use, and AI-powered event recommendations.</p>
+          <div class="project-screens">
+            <figure><img src="/assets/projects/mapin/event-details.webp" width="540" height="1200" loading="lazy" alt="Map’In event details screen"><figcaption>Event details</figcaption></figure>
+            <figure><img src="/assets/projects/mapin/directions.webp" width="540" height="1200" loading="lazy" alt="Map’In directions screen showing a route on the map"><figcaption>Directions</figcaption></figure>
+          </div>
         </section>
         <section aria-labelledby="technical-notes">
           <h2 id="technical-notes">Design &amp; implementation</h2>
-          <p class="editor-note">TODO</p>
+          <p>The Android app separates Jetpack Compose screens, domain logic, and data access. It uses MVVM with repositories, Firebase for authentication, storage, data, and messaging, Mapbox for maps, and OpenRouter for the recommendations assistant.</p>
         </section>
         <section aria-labelledby="material">
-          <h2 id="material">Supporting material</h2>
-          <p class="editor-note">TODO</p>
+          <h2 id="material">Source code</h2>
+          <p class="project-resource"><a href="https://github.com/swent-mapin/Map-In">Map'In on GitHub</a></p>
+          <p class="quiet">The repository includes setup instructions. Screenshots are from the project repository under the <a href="/assets/projects/mapin/LICENSE.txt">MIT license</a>.</p>
         </section>
 
       </article>

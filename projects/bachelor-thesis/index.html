@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>Bachelor’s thesis — Lyes Sehili</title>
-  <meta name="description" content="My EPFL bachelor’s thesis.">
+  <title>Apollo: Evaluating Usability and Extending Social Recovery with Delegated Authorization — Lyes Sehili</title>
+  <meta name="description" content="Design, implementation, and evaluation of delegated authorization for social recovery, alongside an exploratory usability study of Apollo.">
   <meta name="author" content="Lyes Sehili">
 
   <link rel="canonical" href="https://sehi.li/projects/bachelor-thesis/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Lyes Sehili">
-  <meta property="og:title" content="Bachelor’s thesis — Lyes Sehili">
-  <meta property="og:description" content="My EPFL bachelor’s thesis.">
+  <meta property="og:title" content="Apollo: Evaluating Usability and Extending Social Recovery with Delegated Authorization — Lyes Sehili">
+  <meta property="og:description" content="Design, implementation, and evaluation of delegated authorization for social recovery, alongside an exploratory usability study of Apollo.">
   <meta property="og:url" content="https://sehi.li/projects/bachelor-thesis/">
   <meta property="og:locale" content="en_GB">
   <meta property="og:image" content="https://sehi.li/assets/images/social.png">
@@ -23,10 +23,10 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <script src="/assets/js/site.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/style.css?v=7f6414d77104">
+  <script src="/assets/js/site.js?v=d6f4110261dd" defer></script>
 </head>
-<body class="interior">
+<body class="interior page-project">
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="site-shell">
     <header class="site-header">
@@ -51,29 +51,32 @@
       <article class="project-article">
         <a class="back-link" href="/projects/">All projects &amp; research</a>
         <header class="page-heading">
-          <p class="project-category">Bachelor’s thesis · EPFL</p>
-          <h1>Bachelor’s thesis</h1>
-          <p class="lede">My EPFL bachelor’s thesis.</p>
+          <p class="project-category">Bachelor’s thesis · EPFL DEDIS</p>
+          <h1>Apollo: Evaluating Usability and Extending Social Recovery with Delegated Authorization</h1>
+          <p class="lede">Design, implementation, and evaluation of delegated authorization for social recovery, alongside an exploratory usability study of Apollo.</p>
           <dl class="project-facts">
-            <div><dt>Status</dt><dd>TODO</dd></div>
-            <div><dt>Technologies</dt><dd>TODO</dd></div>
+            <div><dt>Status</dt><dd>Completed · June 2026</dd></div>
+            <div><dt>Technologies</dt><dd>Go, Schnorr signatures, Edwards25519, mobile and web prototypes</dd></div>
           </dl>
         </header>
         <section aria-labelledby="details">
           <h2 id="details">Thesis details</h2>
-          <p class="editor-note">TODO</p>
+          <p>EPFL School of Computer and Communication Sciences, June 2026. Supervised by Shailesh Mishra, with Prof. Bryan Ford responsible for the project.</p>
+          <p class="project-resource"><a href="/assets/These_Apollo-6.pdf">Read the thesis (PDF)</a></p>
         </section>
         <section aria-labelledby="abstract">
-          <h2 id="abstract">Abstract</h2>
-          <p class="editor-note">TODO</p>
+          <h2 id="abstract">Research objectives</h2>
+          <p>Apollo lets people recover access to an encrypted vault with help from trusted contacts. I explored two questions: how recovery can start when the user is unavailable, and how well people understand the setup, backup, and recovery workflows.</p>
         </section>
         <section aria-labelledby="notes">
-          <h2 id="notes">Notes on the work</h2>
-          <p class="editor-note">TODO</p>
+          <h2 id="notes">Delegated recovery</h2>
+          <p>I designed and implemented a Go extension that lets a quorum of delegates authorize recovery when the user is unavailable. Delegates approve the request and trustees provide the underlying recovery material.</p>
+          <p>I evaluated the implementation across <strong>19 correctness scenarios</strong>, measured verification latency, and estimated communication overhead. I used <strong>10,000 Monte Carlo trials per configuration</strong> to study quorum completion and delegate discovery.</p>
+          <p>With five delegates and a threshold of three, the estimated probability of forming a quorum was <strong>99.63%</strong>, conditional on one delegate already having initiated recovery and a 90% independent response probability for each remaining delegate. Delegate discovery was the main operational bottleneck.</p>
         </section>
         <section aria-labelledby="material">
-          <h2 id="material">Thesis &amp; supporting material</h2>
-          <p class="editor-note">PDF: TODO</p>
+          <h2 id="material">Usability pilot</h2>
+          <p>Ten participants tried setup, backup, and recovery on a mobile or web prototype. Many could navigate the workflow but still had questions about backup distribution, thresholds, and the roles of selected contacts. The pilot helped identify what to examine in the <a href="/projects/apollo/">larger Apollo usability study</a>.</p>
         </section>
 
       </article>

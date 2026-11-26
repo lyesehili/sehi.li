@@ -1,26 +1,29 @@
 ---
 path: /projects/mapin/
 title: Map'In
-description: TODO
+description: An Android app for discovering student events and sharing location-based memories, developed by a team of seven at EPFL.
+cv_description: Built a location-based Android app in a team of seven using Kotlin, Jetpack Compose, Firebase, and Mapbox.
 section: projects
 layout: project
-category: Academic project · team of seven
-status: TODO
-technologies: TODO
+category: Course project · EPFL Software Enterprise
+status: Completed
+technologies: Kotlin, Jetpack Compose, Firebase, Mapbox GL, OpenRouter
 ---
         <section aria-labelledby="overview">
-          <h2 id="overview">Overview</h2>
-          <p class="editor-note">TODO</p>
-        </section>
-        <section aria-labelledby="contribution">
-          <h2 id="contribution">Contribution</h2>
-          <p class="editor-note">TODO</p>
+          <h2 id="overview">What we built</h2>
+          <p>Students can create or join events on the map and share photos and videos afterward, tagging friends who were there.</p>
+          <p>The app also supports friend lists, chat, directions, saved map regions for offline use, and AI-powered event recommendations.</p>
+          <div class="project-screens">
+            <figure><img src="/assets/projects/mapin/event-details.webp" width="540" height="1200" loading="lazy" alt="Map’In event details screen"><figcaption>Event details</figcaption></figure>
+            <figure><img src="/assets/projects/mapin/directions.webp" width="540" height="1200" loading="lazy" alt="Map’In directions screen showing a route on the map"><figcaption>Directions</figcaption></figure>
+          </div>
         </section>
         <section aria-labelledby="technical-notes">
           <h2 id="technical-notes">Design &amp; implementation</h2>
-          <p class="editor-note">TODO</p>
+          <p>The Android app separates Jetpack Compose screens, domain logic, and data access. It uses MVVM with repositories, Firebase for authentication, storage, data, and messaging, Mapbox for maps, and OpenRouter for the recommendations assistant.</p>
         </section>
         <section aria-labelledby="material">
-          <h2 id="material">Supporting material</h2>
-          <p class="editor-note">TODO</p>
+          <h2 id="material">Source code</h2>
+          <p class="project-resource"><a href="https://github.com/swent-mapin/Map-In">Map'In on GitHub</a></p>
+          <p class="quiet">The repository includes setup instructions. Screenshots are from the project repository under the <a href="/assets/projects/mapin/LICENSE.txt">MIT license</a>.</p>
         </section>

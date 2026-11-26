@@ -17,12 +17,6 @@ if (moreMenu) {
   });
 }
 
-const printButton = document.querySelector("[data-print]");
-if (printButton) {
-  printButton.hidden = false;
-  printButton.addEventListener("click", () => window.print());
-}
-
 // External players load only after a click. Without JS, links open YouTube.
 document.querySelectorAll("a[data-youtube]").forEach((link) => {
   const id = link.dataset.youtube;

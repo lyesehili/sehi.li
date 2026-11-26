@@ -1,26 +1,25 @@
 ---
 path: /projects/iml/
-title: IML
-description: TODO
+title: Machine Learning for Medical Classification
+description: Experiments in heart disease prediction and skin lesion classification using tabular records and dermoscopic images.
+cv_description: Implemented classical classifiers from scratch in Python and compared PyTorch models on DermaMNIST using accuracy and macro F1.
 section: projects
 layout: project
-category: Academic project · EPFL
-status: TODO
-technologies: TODO
+category: Course project · EPFL CS-233
+status: Completed
+technologies: Python, PyTorch
 ---
         <section aria-labelledby="context">
-          <h2 id="context">Course context</h2>
-          <p class="editor-note">TODO</p>
+          <h2 id="context">Context</h2>
+          <p>I worked on this project with friends for EPFL’s Introduction to Machine Learning course. Both datasets were imbalanced, so we compared overall accuracy with macro F1, which gives each class equal weight.</p>
         </section>
         <section aria-labelledby="approach">
-          <h2 id="approach">Approach</h2>
-          <p class="editor-note">TODO</p>
+          <h2 id="approach">Heart disease classification</h2>
+          <p>We implemented logistic regression, k-nearest neighbors, and k-means from scratch and compared them on 297 records with five heart disease labels. We tuned hyperparameters using five-fold cross-validation and evaluated on a held-out test set.</p>
+          <p class="project-resource"><a href="/assets/report-2.pdf">Read the heart disease report (PDF)</a></p>
         </section>
         <section aria-labelledby="reflection">
-          <h2 id="reflection">Results &amp; reflections</h2>
-          <p class="editor-note">TODO</p>
-        </section>
-        <section aria-labelledby="material">
-          <h2 id="material">Supporting material</h2>
-          <p class="editor-note">TODO</p>
+          <h2 id="reflection">Skin lesion classification</h2>
+          <p>We compared multilayer perceptrons and convolutional neural networks on 9,012 DermaMNIST images across seven classes. In our CNN comparison, class weighting raised macro F1 from <strong>0.364 to 0.423</strong>, while overall accuracy fell from <strong>70.3% to about 63%</strong>. The weighted model scored better when each class counted equally, but made fewer correct predictions overall.</p>
+          <p class="project-resource"><a href="/assets/report-3.pdf">Read the skin lesion report (PDF)</a></p>
         </section>

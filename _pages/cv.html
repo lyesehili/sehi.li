@@ -6,75 +6,94 @@ section: cv
 ---
       <header class="page-heading">
         <div class="cv-heading">
-          <div>
-            <h1>Lyes Sehili</h1>
-            <p class="cv-contact">Computer Science MSc student · Zürich, Switzerland<br>
-              <a href="mailto:lyes@sehi.li">lyes@sehi.li</a> · <a href="https://sehi.li/">sehi.li</a></p>
-          </div>
-          <button class="print-button" type="button" data-print hidden>Print / save as PDF</button>
+          <h1>Lyes Sehili</h1>
+          <a class="cv-download" href="/assets/Lyes_Sehili_CV.pdf" download>Save as PDF</a>
         </div>
-        <div class="text-links"><a href="https://github.com/lyesehili">GitHub</a><a href="https://www.linkedin.com/in/lyes-sehili-917648247/">LinkedIn</a></div>
-        <!-- PDF: the concise application CV; add a download link when the real file is supplied. -->
-        <p class="pdf-note"><strong>Download CV (PDF)</strong> — TODO</p>
+        <p class="cv-contact">Computer Science MSc student · Zürich, Switzerland ·
+          <a href="mailto:lyes@sehi.li">lyes@sehi.li</a> · <a href="https://sehi.li/">sehi.li</a> ·
+          <a href="https://github.com/lyesehili">GitHub</a> ·
+          <a href="https://www.linkedin.com/in/lyes-sehili-917648247/">LinkedIn</a></p>
       </header>
       <section class="cv-section" aria-labelledby="education">
         <h2 id="education">Education</h2>
-        <div class="cv-entry"><span class="cv-date">Dates: TODO</span><div><h3>ETH Zürich</h3><p>MSc Computer Science · in progress</p></div></div>
-        <div class="cv-entry"><span class="cv-date">Dates: TODO</span><div><h3>EPFL</h3><p>BSc Computer Science</p></div></div>
-        <div class="cv-entry"><span class="cv-date">Dates: TODO</span><div><h3>LFiA · Amman, Jordan</h3><p>High school · Science track</p></div></div>
-        <div class="cv-entry"><span class="cv-date">Dates: TODO</span><div><h3>LGF · Tunisia</h3><p>Middle school</p></div></div>
-        <div class="cv-entry"><span class="cv-date">Dates: TODO</span><div><h3>Anna de Noailles · Romania</h3><p>Primary school</p></div></div>
+        <div class="cv-entry">
+          <span class="cv-date">Sep. 2026 – Present</span>
+          <div><h3>ETH Zürich · Zürich, Switzerland</h3><p>MSc Computer Science, major in Machine Intelligence</p><p class="cv-coursework">Current coursework: Probabilistic AI, Big Data, and Information Security Lab.</p></div>
+        </div>
+        <div class="cv-entry">
+          <span class="cv-date">Sep. 2022 – Jul. 2026</span>
+          <div><h3>EPFL · Lausanne, Switzerland</h3><p>BSc Computer Science</p><p class="cv-coursework">Completed coursework: Probability and Statistics, Algorithms, Signal Processing, and Theory of Computation.</p></div>
+        </div>
+        <div class="cv-entry cv-school"><span class="cv-date">2017–2022</span><div><h3>Lycée français international d’Amman · Amman, Jordan</h3><p>High school</p><p class="cv-coursework">Science track</p></div></div>
+        <div class="cv-entry cv-school"><span class="cv-date">2014–2017</span><div><h3>Lycée français Gustave-Flaubert · La Marsa, Tunisia</h3><p>Middle school</p></div></div>
+        <div class="cv-entry cv-school"><span class="cv-date">2009–2014</span><div><h3>Lycée français Anna-de-Noailles · Bucharest, Romania</h3><p>Primary school</p></div></div>
+      </section>
+      <section class="cv-section" aria-labelledby="awards">
+        <h2 id="awards">Awards &amp; competitions</h2>
+        <div class="cv-entry">
+          <span class="cv-date">Nov. 2026</span>
+          <div><h3>Qube Research &amp; Technologies Data Challenge — 1st place</h3><p>1st out of 36 teams. Predicted relative returns over the last 30 minutes for 386 European stocks, with an out-of-time test set.</p></div>
+        </div>
+        <div class="cv-entry">
+          <span class="cv-date">Oct. 2026</span>
+          <div><h3>G-Research Quant Challenge — 1st place</h3><p>1st out of 32 teams. Developed a strategy for a multi-agent reward game with cooldowns and collision penalties.</p></div>
+        </div>
+        <div class="cv-entry">
+          <span class="cv-date">2022</span>
+          <div><h3>Concours Général de Mathématiques</h3><p>Selected among the top 8% of French-system students worldwide.</p></div>
+        </div>
       </section>
       <section class="cv-section" aria-labelledby="experience">
         <h2 id="experience">Research &amp; work experience</h2>
         <div class="cv-entry">
-          <span class="cv-date">Dates: TODO</span>
+          <span class="cv-date">Feb. 2026 – Present</span>
           <div>
-            <h3>EPFL DEDIS</h3>
-            <p>Delegated key recovery and secure encrypted vaults.</p>
-            <dl class="experience-details">
-              <div><dt>Position</dt><dd>TODO</dd></div>
-              <div><dt>Research</dt><dd>TODO</dd></div>
-              <div><dt>Implementation</dt><dd>TODO</dd></div>
-              <div><dt>Experiments</dt><dd>TODO</dd></div>
-              <div><dt>User research</dt><dd>TODO</dd></div>
-            </dl>
-            <p><a href="/projects/apollo/">Key Recovery / Apollo</a></p>
+            <h3>Research Assistant · EPFL DEDIS</h3>
+            <p>Decentralized and Distributed Systems Laboratory, Lausanne</p>
+            <p>For my <a href="/projects/bachelor-thesis/">bachelor’s thesis</a>, completed in June 2026:</p>
+            <ul class="cv-projects">
+              <li>Designed and implemented delegated recovery for Apollo in Go using Schnorr signatures over Edwards25519. Evaluated the implementation across <strong>19 correctness scenarios</strong>.</li>
+              <li>Modelled quorum completion with a binomial model and <strong>10,000 Monte Carlo trials per configuration</strong>. Estimated <strong>99.63% quorum completion</strong> with five delegates and a threshold of three, given an available initiating delegate and a 90% independent response probability for each remaining delegate.</li>
+              <li>Benchmarked verification latency and estimated communication overhead. Identified delegate discovery as the main operational bottleneck and ran a ten-person pilot on the mobile and web prototypes.</li>
+            </ul>
+            <p>I’m now working on <a href="/projects/apollo/">Apollo Usability Research</a>. The study aims to recruit more than 200 participants to compare Apollo configurations and assess how people complete tasks and understand social recovery.</p>
           </div>
         </div>
       </section>
       <section class="cv-section" aria-labelledby="cv-projects">
         <h2 id="cv-projects">Projects</h2>
         <ul class="cv-projects">
-          <li><a href="/projects/apollo/">Key Recovery / Apollo</a> — delegated recovery and encrypted vaults; EPFL DEDIS.</li>
-          <li><a href="/projects/mapin/">MAPIN</a> — university project developed from scratch by a team of seven.<br><span class="editor-note">Contribution: TODO</span></li>
-          <li><a href="/projects/iml/">IML</a> — machine learning course project at EPFL.</li>
-          <li><a href="/projects/bachelor-thesis/">Bachelor’s thesis</a> — EPFL. <span class="editor-note">Title: TODO</span></li>
-          <li><a href="/projects/polymarket/">Polymarket</a> — in progress.</li>
-          <li><a href="/projects/poker-bot/">Poker Bot</a> — planned.</li>
+{{cv_projects}}
         </ul>
       </section>
       <section class="cv-section" aria-labelledby="activities">
-        <h2 id="activities">Club activities &amp; event development</h2>
+        <h2 id="activities">Activities</h2>
         <div class="cv-entry">
-          <span class="cv-date">Dates: TODO</span>
-          <div><h3>FullHouse · ETH Quantitative Finance Club</h3><p>Work on the FullHouse competition.</p><p class="editor-note">Role &amp; contribution: TODO</p></div>
+          <span class="cv-date">Ongoing</span>
+          <div><h3>ETH Quantitative Finance Club</h3><p>Working on the Monte Carlo Cup, a poker tournament.</p></div>
         </div>
-      </section>
-      <section class="cv-section" aria-labelledby="awards">
-        <h2 id="awards">Awards &amp; competitions</h2>
-        <p class="editor-note">TODO</p>
       </section>
       <section class="cv-section" aria-labelledby="skills">
         <h2 id="skills">Technical skills</h2>
-        <p class="editor-note">TODO</p>
+        <ul class="plain-list">
+          <li><strong>Programming:</strong> Python, C, Go, Java, Scala, SQL, Verilog</li>
+          <li><strong>Tools:</strong> NumPy, SciPy, pandas, PyTorch, Git, Linux</li>
+        </ul>
       </section>
       <section class="cv-section" aria-labelledby="cv-languages">
         <h2 id="cv-languages">Languages</h2>
         <ul class="plain-list">
-          <li>Arabic — fluent</li>
-          <li>French — fluent</li>
-          <li>English — fluent</li>
-          <li>Spanish — basic</li>
+          <li>Arabic — native</li>
+          <li>French — native</li>
+          <li>English — C2</li>
+          <li>Spanish — B1</li>
+        </ul>
+      </section>
+      <section class="cv-section" aria-labelledby="cv-interests">
+        <h2 id="cv-interests">Interests</h2>
+        <ul class="plain-list">
+          <li><a href="/gaming/">Chess and competitive gaming</a> — around 1800 on Lichess, top 15% across multiple games, and competed in a top-1% Darwin Project world tournament.</li>
+          <li><a href="/mountains/">Bouldering</a> — climbing around 6c–6c+ indoors.</li>
+          <li><a href="/music/">Piano</a> — played for about 11 years.</li>
         </ul>
       </section>

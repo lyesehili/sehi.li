@@ -18,7 +18,7 @@ Edit content in `_pages/`, shared markup in `_templates/`, and styling in
 variables at the top of that file. For a sans-serif design, change
 `--font-heading` to `var(--font-body)`.
 
-After changing content, templates, or navigation, regenerate the HTML:
+After changing content, templates, navigation, or CSS, regenerate the HTML:
 
 ```sh
 python3 scripts/build.py
@@ -27,20 +27,26 @@ python3 scripts/test_media.py
 ```
 
 Python 3.9+ and its standard library are sufficient. The generator is a local
-authoring tool, not a GitHub Pages build requirement. Commit source and generated
-files together. It overwrites generated HTML; make prose edits in `_pages/`.
+authoring tool, not a GitHub Pages build requirement. It versions stylesheet and
+script URLs from their contents so browsers load updates after regeneration.
+Commit source and generated files together. It overwrites generated HTML;
+make prose edits in `_pages/`.
 These commands never push or deploy. Publishing remains a separate manual step.
 
 ## Add a page or project
 
 Copy a file in `_pages/`. Its small front matter block supplies `path`, `title`,
 `description`, `section`, and optional `layout`. Use `layout: project` for the
-shared article layout, with `category`, `status`, and `technologies` metadata.
+shared article layout, with `category` and `status` metadata. Add `technologies`
+or `platforms` when relevant.
 A documented starter lives in `_templates/project-starter.html`.
 
 Use directory URLs, e.g. `/projects/my-project/`. The generator writes
 `projects/my-project/index.html`, metadata, and a sitemap entry. Link the new
-project in `_pages/projects.html` and optionally the home or CV selection.
+project by adding its URL slug to `PROJECT_GROUPS` in `scripts/build.py`.
+The Projects list uses the detail-page title, description, and status. Set
+`listing_title` for a shorter title in both lists. Add `cv_description` to
+include a project in the CV, with its own concise description.
 For new primary navigation, edit `NAV_PRIMARY` or `NAV_MORE` in `scripts/build.py`.
 The header name links home. A custom `404.html` is included.
 
@@ -50,6 +56,14 @@ cleared for public release. The Apollo paper is related reading; the site does
 not claim paper authorship.
 
 ## Add photographs
+
+The homepage portrait uses `assets/pp-final.webp` at the uploaded 2014 × 2560
+resolution, with light WebP compression (quality 94) and no metadata. No resizing
+was applied. Its upload is retained locally in ignored
+`.preview/source-images/pp-finalfinal.jpg`. The square crop and display size
+are CSS. Update `_pages/home.html` if a replacement has different dimensions.
+
+For standalone images elsewhere on the site, use this markup:
 
 Put your own images in `assets/images/`. Replace the relevant placeholder:
 
@@ -112,11 +126,9 @@ played automatically, and no copyrighted recordings are hosted.
 
 ## CV, SEO, and checks
 
-When a real PDF is ready, add `assets/documents/lyes-sehili-cv.pdf` and replace
-the marked PDF placeholder in `_pages/cv.html` with a download link. Until then,
-the page offers browser printing / Save as PDF. The HTML CV deliberately keeps
-the full education history and activities; the downloadable PDF will be the
-separate, concise application CV.
+The CV page’s Save as PDF link downloads the professional CV from
+`assets/Lyes_Sehili_CV.pdf`.
+Edit `_pages/cv.html` to update the detailed website version.
 
 Page descriptions live in each source file. Shared metadata, the domain, and
 navigation live in `scripts/build.py` and `_templates/base.html`. The generator
